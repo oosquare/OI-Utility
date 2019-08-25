@@ -1,33 +1,35 @@
+template <typename T, int Lim, T Inf>
 class IrrotationalTreap 
 {
 public:
     IrrotationalTreap() {
         Root = 0;
-        create(0x3f3f3f3f);
+        create(Inf);
         Tree[1].Size = 0;
         Total = 1;
         Root = 1;
     }
 
-    void insert(int key) { insert(Root, key); }
+    void insert(T key) { insert(Root, key); }
 
-    void remove(int key) { remove(Root, key); }
+    void remove(T key) { remove(Root, key); }
 
-    int rank(int key) { return rank(Root, key); }
+    int rank(T key) { return rank(Root, key); }
 
     int at(int k) { return at(Root, k); }
 
-    int lower(int key) { return lower(Root, key); }
+    int lower(T key) { return lower(Root, key); }
 
-    int upper(int key) { return upper(Root, key); }
+    int upper(T key) { return upper(Root, key); }
 
 private:
     struct Node {
-        int Key, Size, Count, Left, Right, Priority;
-    } Tree[1000001];
+        T Key;
+        int Size, Count, Left, Right, Priority;
+    } Tree[Lim];
     int Total;
     int Root;
-    int create(int key) {
+    int create(T key) {
         ++Total;
         Tree[Total].Key = key;
         Tree[Total].Size = 1;
@@ -73,14 +75,14 @@ private:
         update(root);
     }
 
-    void insert(int& root, int key) {
+    void insert(int& root, T key) {
         int x = 0, y = 0, nnode = create(key);
         split(root, x, y, key);
         merge(x, x, nnode);
         merge(root, x, y);
     }
 
-    void remove(int& root, int key) {
+    void remove(int& root, T key) {
         int x = 0, y = 0, z = 0;
         split(root, x, y, key);
         split(x, x, z, key - 1);
@@ -89,7 +91,7 @@ private:
         merge(root, x, y);
     }
 
-    int rank(int& root, int key) {
+    int rank(int& root, T key) {
         int x = 0, y = 0;
         split(root, x, y, key - 1);
         int tmp = Tree[x].Size + 1;
@@ -109,7 +111,7 @@ private:
         return Tree[root].Key;
     }
 
-    int lower(int& root, int key) {
+    T lower(int& root, T key) {
         int x = 0, y = 0;
         split(root, x, y, key - 1);
         int tmp = at(x, Tree[x].Size);
@@ -117,7 +119,7 @@ private:
         return tmp;
     }
 
-    int upper(int& root, int key) {
+    T upper(int& root, T key) {
         int x = 0, y = 0;
         split(root, x, y, key);
         int tmp = at(y, 1);

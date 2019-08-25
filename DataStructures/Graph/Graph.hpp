@@ -1,8 +1,7 @@
 #include <vector>
 using namespace std;
 
-const int Lim=1000000;
-
+template <int Lim>
 class Graph
 {
 public:

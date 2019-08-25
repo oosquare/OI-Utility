@@ -1,9 +1,7 @@
 #include <vector>
 using namespace std;
 
-const int Lim=1000000;
-
-template<typename T>
+template <typename T,int Lim>
 class WeightGraph
 {
 public:

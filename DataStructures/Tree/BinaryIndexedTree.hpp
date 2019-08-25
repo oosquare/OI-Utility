@@ -1,6 +1,4 @@
-const int Lim=10000;
-
-template<typename T>
+template <typename T,int Lim>
 class BinaryIndexedTree
 {
 public:
