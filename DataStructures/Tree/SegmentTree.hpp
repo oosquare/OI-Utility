@@ -1,134 +1,73 @@
-#include <vector>
-using namespace std;
-
-template<typename T>
-class SegmentTree
+template <typename T, int Lim>
+class SegmentTree 
 {
 public:
-    SegmentTree(){}
-    SegmentTree(int size):Tree(size){}
-    SegmentTree(const vector<T>& container){
-        build(container);
-    }
-    ~SegmentTree(){};
+    void init(int n) { Size = n; }
 
-public:
-    void build(const vector<T>& container){
-        Tree.clear();
-        Size=container.size();
-        Tree.assign(Node(),Size+1);
-        build(container,1,0,Size-1);
-    }
+    void build(T arr[]) { build(1, 1, Size, arr); }
 
-    T at(int key){
-        return query(1,1,Size,key,key);
-    }
+    void modify(int left, int right, T key) { modify(1, 1, Size, left, right, key); }
 
-    T sum(int lkey,int r,key){
-        return query(1,1,Size,lkey,rkey);
-    }
+    T query(int left, int right) { return query(1, 1, Size, left, right); }
 
-    void insert(int key,T val){
-        modifyPlus(-at(key)+val);
-    }
-
-    void plus(int key,T val){
-        modifyPlus(key,val);
-    }
-
-    void minus(int key,T val){
-        modifyPlus(key,-val);
-    }
-
-    void multi(int key,T val){
-        modifyMult(key,val);
-    }
-
-    void divide(int key,T val){
-        modifyMult(key,1/val);
-    }
 private:
-    struct Node
+    struct Node 
     {
-        T Value,Plus,Mult;
-    };
-    vector<Node> Tree;
+        T Add, Sum;
+    } Tree[Lim];
     int Size;
 
-private:
-    void pushUp(int k){
-        Tree[k].Value=Tree[k<<1].Value+Tree[k<<1|1].Value;
+    void pushup(int root) { Tree[root].Sum = Tree[root << 1].Sum + Tree[root << 1 | 1].Sum; }
+
+    void update(int root, int left, int right, T key) {
+        Tree[root].Add += key;
+        Tree[root].Sum += key * (right - left + 1);
     }
 
-    void pushDown(int k,int l,int r){
-        if(Tree[k].Mult!=1){
-            Tree[k<<1].Plus=Tree[k<<1].Plus*Tree[k].Mult;
-            Tree[k<<1|1].Plus=Tree[k<<1|1].Plus*Tree[k].Mult;
-            Tree[k<<1].Mult=Tree[k].Mult*Tree[k<<1].Mult;
-            Tree[k<<1|1].Mult=Tree[k].Mult*Tree[k<<1|1].Mult;
-            Tree[k<<1].Value=Tree[k<<1].Value*Tree[k].Mult;
-            Tree[k<<1|1].Value=Tree[k<<1|1].Value*Tree[k].Mult;
-        }
-        if(Tree[k].Plus!=0){
-            int mid=(l+r)>>1;
-            int llen=mid-l+1;
-            int rlen=r-mid;
-            Tree[k<<1].Plus=Tree[k<<1].Plus+Tree[k].Plus;
-            Tree[k<<1|1].Plus=Tree[k<<1|1].Plus+Tree[k].Plus;
-            Tree[k<<1].Value=Tree[k<<1].Value+Tree[k].Plus*llen;
-            Tree[k<<1|1].Value=Tree[k<<1|1].Value+Tree[k].Plus*rlen;
-        }
-        Tree[k].Plus=0;
-        Tree[k].Mult=1;
+    void pushdown(int root, int left, int right) {
+        if (Tree[root].Add == 0)
+            return;
+        int mid = left + right >> 1;
+        update(root << 1, left, mid, Tree[root].Add);
+        update(root << 1 | 1, mid + 1, right, Tree[root].Add);
+        Tree[root].Add = 0;
     }
 
-    void build(const vector<T>& a,int k,int l,int r){
-        Tree[k].Plus=0;
-        Tree[k].Mult=1;
-        if(l==r){
-            Tree[k].Value=a[l];
+    void build(int root, int left, int right, T arr[]) {
+        if (left == right) {
+            Tree[root].Sum = arr[left];
             return;
         }
-        int mid=(l+r)>>1;
-        build(k<<1,l,mid);
-        build(k<<1|1,mid+1,r);
-        pushUp(k);
+        int mid = left + right >> 1;
+        build(root << 1, left, mid, arr);
+        build(root << 1 | 1, mid + 1, right, arr);
+        pushup(root);
     }
 
-    void modifyPlus(int k,int l,int r,int x,int y,T v){
-        if(x<=l&&r<=y){
-            Tree[k].Value+=v*(r-l+1);
-            Tree[k].Plus+=v;
+    void modify(int root, int left, int right, int mleft, int mright, T key) {
+        if (mleft <= left && right <= mright) {
+            update(root, left, right, key);
             return;
         }
-        int mid=(l+r)>>1;
-        pushDown(k,l,r);
-        if(x<=mid)modifyPlus(k<<1,l,mid,x,y,v);
-        if(mid<y)modifyPlus(k<<1|1,mid+1,r,x,y,v);
-        pushUp(k);
+        int mid = left + right >> 1;
+        pushdown(root, left, right);
+        if (mleft <= mid)
+            modify(root << 1, left, mid, mleft, mright, key);
+        if (mid > mright)
+            modify(root << 1 | 1, mid + 1, right, mleft, mright, key);
+        pushup(root);
     }
 
-    void modifyMult(int k,int l,int r,int x,int y,T v){
-        if(x<=l&&r<=y){
-            Tree[k].Value*=v;
-            Tree[k].Plus*=v;
-            Tree[k].Mult*=v;
-            return;
-        }
-        int mid=(l+r)>>1;
-        pushDown(k,l,r);
-        if(x<=mid)modifyMult(k<<1,l,mid,x,y,v);
-        if(mid<y)modifyMult(k<<1|1,mid+1,r,x,y,v);
-        pushUp(k);
-    }
-
-    T query(int k,int l,int r,int x,int y){
-        if(x<=l&&r<=y)return Tree[k].v;
-        int mid=(l+r)>>1;
-        pushDown(k,l,r);
-        T res=0;
-        if(x<=mid)res+=query(k<<1,l,mid,x,y;
-        if(mid<y)res+=query(k<<1|1,mid+1,r,x,y);
+    T query(int root, int left, int right, int qleft, int qright) {
+        if (qleft <= left && right <= qright)
+            return Tree[root].Sum;
+        int mid = left + right >> 1;
+        pushdown(root, left, right);
+        T res = 0;
+        if (qleft = mid)
+            res += query(root << 1, left, mid, qleft, qright);
+        if (mid  qright)
+            res += query(root << 1 | 1, mid + 1, right, qleft, qright);
         return res;
     }
 };
