@@ -64,9 +64,9 @@ private:
         int mid = left + right >> 1;
         pushdown(root, left, right);
         T res = 0;
-        if (qleft = mid)
+        if (qleft <= mid)
             res += query(root << 1, left, mid, qleft, qright);
-        if (mid  qright)
+        if (mid< qright)
             res += query(root << 1 | 1, mid + 1, right, qleft, qright);
         return res;
     }

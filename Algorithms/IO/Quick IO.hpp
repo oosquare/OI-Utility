@@ -26,12 +26,22 @@ namespace IO
     }
 
     template <typename T>
-    inline void write(T x){
+    inline void writeln(T x){
         if (!x) *fe++=48;
         if (x<0) *fe++='-', x=-x;
         T num=0, ch[20];
         while (x) ch[++num]=x%10+48, x/=10;
         while (num) *fe++=ch[num--];
         *fe++='\n';
+    }
+
+    template <typename T>
+    inline void writesp(T x){
+        if (!x) *fe++=48;
+        if (x<0) *fe++='-', x=-x;
+        T num=0, ch[20];
+        while (x) ch[++num]=x%10+48, x/=10;
+        while (num) *fe++=ch[num--];
+        *fe++=' ';
     }
 }
