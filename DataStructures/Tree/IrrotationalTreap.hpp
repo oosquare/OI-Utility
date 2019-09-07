@@ -8,6 +8,7 @@ public:
         Tree[1].Size = 0;
         Total = 1;
         Root = 1;
+        Seed = 233;
     }
 
     void insert(T key) { insert(Root, key); }
@@ -22,6 +23,8 @@ public:
 
     int upper(T key) { return upper(Root, key); }
 
+    int size(){ return Tree[Root].Size; }
+    
 private:
     struct Node {
         T Key;
@@ -29,6 +32,8 @@ private:
     } Tree[Lim];
     int Total;
     int Root;
+    int Seed;
+    
     int create(T key) {
         ++Total;
         Tree[Total].Key = key;
