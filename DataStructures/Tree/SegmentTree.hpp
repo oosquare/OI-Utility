@@ -53,7 +53,7 @@ private:
         pushdown(root, left, right);
         if (mleft <= mid)
             modify(root << 1, left, mid, mleft, mright, key);
-        if (mid > mright)
+        if (mid < mright)
             modify(root << 1 | 1, mid + 1, right, mleft, mright, key);
         pushup(root);
     }
@@ -66,7 +66,7 @@ private:
         T res = 0;
         if (qleft <= mid)
             res += query(root << 1, left, mid, qleft, qright);
-        if (mid< qright)
+        if (mid < qright)
             res += query(root << 1 | 1, mid + 1, right, qleft, qright);
         return res;
     }
