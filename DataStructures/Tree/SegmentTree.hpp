@@ -1,4 +1,4 @@
-template <typename T, int Lim>
+template <typename T, int MaxSize>
 class SegmentTree 
 {
 public:
@@ -14,7 +14,7 @@ private:
     struct Node 
     {
         T Add, Sum;
-    } Tree[Lim];
+    } Tree[MaxSize];
     int Size;
 
     void pushup(int root) { Tree[root].Sum = Tree[root << 1].Sum + Tree[root << 1 | 1].Sum; }

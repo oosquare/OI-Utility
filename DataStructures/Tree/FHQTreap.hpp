@@ -44,7 +44,7 @@ public:
         return Tree[root].Key;
     }
 
-    T lower(T key) {
+    T prev(T key) {
         int x, y, root;
         T ans;
         split(Root, key - 1, x, y);
@@ -55,7 +55,7 @@ public:
         return ans;
     }
 
-    T upper(T key) {
+    T next(T key) {
         int x, y, root;
         T ans;
         split(Root, key, x, y);
