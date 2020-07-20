@@ -1,3 +1,5 @@
+#include <limits>
+
 template <typename T>
 class FHQTreap {
 public:
@@ -57,7 +59,7 @@ public:
         split1(Root, key, x, y);
         root = x;
         if (root == nullptr)
-            return -0x7fffffff;
+            return std::numeric_limits<T>::min();
         while (root->Right) root = root->Right;
         ans = root->Key;
         Root = merge(x, y);
@@ -70,7 +72,7 @@ public:
         split2(Root, key, x, y);
         root = y;
         if (root == nullptr)
-            return 0x7fffffff;
+            return std::numeric_limits<T>::max();
         while (root->Left) root = root->Left;
         ans = root->Key;
         Root = merge(x, y);
