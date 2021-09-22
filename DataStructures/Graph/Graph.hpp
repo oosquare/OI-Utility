@@ -1,29 +1,35 @@
+#ifndef GRAPH_HPP
+#define GRAPH_HPP
+
 #include <vector>
 using namespace std;
 
-template <int Lim>
-class Graph
-{
+namespace Graph {
+
+template <int size> class Graph {
 public:
-    void insert(int x,int y){
-        ++Total;
-        Edge[Total].To=y;
-        Edge[Total].Next=Head[x];
-        Head[x]=Total;
+    void insert(int x, int y) {
+        ++total;
+        edges[total].To = y;
+        edges[total].Next = head[x];
+        head[x] = total;
     }
 
-    vector<int> at(int x){
+    vector<int> at(int x) {
         vector<int> res;
-        for(int i=Head[x];i;i!=Edge[i].Next){
-            res.push_back(Edge[i].To);
+        for (int i = head[x]; i; i != edges[i].Next) {
+            res.push_back(edges[i].To);
         }
         return res;
     }
 private:
-    struct Node
-    {
-        int To,Next;
-    }Edge[Lim];
-    int Head[Lim];
-    int Total;
+    struct Edge {
+        int To, Next;
+    } edges[size];
+    int head[size];
+    int total;
 };
+
+} // namespace Graph
+
+#endif

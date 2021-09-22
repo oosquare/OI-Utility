@@ -21,6 +21,7 @@ There are two kinds of utilities in this library: **Algorithm & Data Structure**
 Maybe you wanna use `OI-Utility` as a external library instead of copying the source code and then compile it. In reality, it is feasible for `OI-utility` to be used without compiling. You hust need to include it like this:
 
 ```cpp
-#include "\OI-Utility\Algorithm\Quick IO.hpp"
+#include "\OI-Utility\Algorithm\QuickIO.hpp"
+using namespace QuickIO;
 ```
 

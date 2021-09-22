@@ -1,116 +1,121 @@
+#ifndef FHQTREAP_HPP
+#define FHQTREAP_HPP
+
 #include <limits>
 
-template <typename T>
-class FHQTreap {
-public:
-    FHQTreap() { Root = nullptr; }
+namespace FhqTreap {
 
-    ~FHQTreap() {
-        if (Root)
-            delete Root;
+template <typename T>
+class FhqTreap {
+public:
+    FhqTreap() { root = nullptr; }
+
+    ~FhqTreap() {
+        if (root)
+            delete root;
     }
 
     void insert(T key) {
         Node *x, *y;
-        split1(Root, key, x, y);
-        Root = merge(merge(x, create(key)), y);
+        split1(root, key, x, y);
+        root = merge(merge(x, create(key)), y);
     }
 
     void remove(T key) {
         Node *x, *y, *z;
-        split2(Root, key, x, z);
+        split2(root, key, x, z);
         split1(x, key, x, y);
         if (y) {
-            y = merge(y->Left, y->Right);
+            y = merge(y->left, y->right);
         }
-        Root = merge(merge(x, y), z);
+        root = merge(merge(x, y), z);
     }
 
     int rank(T key) {
         Node *x, *y;
         int ans;
-        split1(Root, key, x, y);
-        ans = (x ? x->Size : 0) + 1;
-        Root = merge(x, y);
+        split1(root, key, x, y);
+        ans = (x ? x->size : 0) + 1;
+        root = merge(x, y);
         return ans;
     }
 
     T at(int r) {
-        if (Root == nullptr || r > Root->Size)
+        if (root == nullptr || r > root->size)
             return T();
-        Node *root = Root;
+        Node *root = root;
         while (root) {
-            int ls = root->Left ? root->Left->Size : 0;
+            int ls = root->left ? root->left->size : 0;
             if (ls + 1 == r) {
                 break;
             } else if (ls + 1 > r) {
-                root = root->Left;
+                root = root->left;
             } else {
                 r -= ls + 1;
-                root = root->Right;
+                root = root->right;
             }
         }
-        return root->Key;
+        return root->key;
     }
 
     T previous(T key) {
         Node *x, *y, *root;
         T ans;
-        split1(Root, key, x, y);
+        split1(root, key, x, y);
         root = x;
         if (root == nullptr)
             return std::numeric_limits<T>::min();
-        while (root->Right) root = root->Right;
-        ans = root->Key;
-        Root = merge(x, y);
+        while (root->right) root = root->right;
+        ans = root->key;
+        root = merge(x, y);
         return ans;
     }
 
     T next(T key) {
         Node *x, *y, *root;
         T ans;
-        split2(Root, key, x, y);
+        split2(root, key, x, y);
         root = y;
         if (root == nullptr)
             return std::numeric_limits<T>::max();
-        while (root->Left) root = root->Left;
-        ans = root->Key;
-        Root = merge(x, y);
+        while (root->left) root = root->left;
+        ans = root->key;
+        root = merge(x, y);
         return ans;
     }
 
-    int size() { return (Root ? Root->Size : 0); }
+    int size() { return (root ? root->size : 0); }
 
     bool find(T key) {
         Node *x, *y, *z;
-        split2(Root, key, x, z);
+        split2(root, key, x, z);
         split1(x, key, x, y);
         bool ans;
         if (y)
             ans = true;
         else
             ans = false;
-        Root = merge(merge(x, y), z);
+        root = merge(merge(x, y), z);
         return ans;
     }
 
 private:
     struct Node {
-        T Key;
-        Node *Left, *Right;
-        int Size, Priority;
+        T key;
+        Node *left, *right;
+        int size, priority;
 
-        Node(T key, int pri) : Key(key), Left(nullptr), Right(nullptr), Size(1), Priority(pri) {}
+        Node(T key, int pri) : key(key), left(nullptr), right(nullptr), size(1), priority(pri) {}
         ~Node() {
-            if (Left)
-                delete Left;
-            if (Right)
-                delete Right;
+            if (left)
+                delete left;
+            if (right)
+                delete right;
         }
-    } * Root;
-    int Seed;
+    } * root;
+    int seed;
 
-    int random() { return Seed = int((Seed + 3) * 482711ll % 2147483647); }
+    int random() { return seed = int((seed + 3) * 482711ll % 2147483647); }
 
     Node *create(T key) {
         Node *root = new Node(key, random());
@@ -119,7 +124,7 @@ private:
 
     void pushup(Node *root) {
         if (root)
-            root->Size = (root->Left ? root->Left->Size : 0) + (root->Right ? root->Right->Size : 0) + 1;
+            root->size = (root->left ? root->left->size : 0) + (root->right ? root->right->size : 0) + 1;
     }
 
     void split1(Node *root, T key, Node *&x, Node *&y) {
@@ -127,12 +132,12 @@ private:
             x = y = nullptr;
             return;
         }
-        if (root->Key < key) {
+        if (root->key < key) {
             x = root;
-            split1(root->Right, key, root->Right, y);
+            split1(root->right, key, root->right, y);
         } else {
             y = root;
-            split1(root->Left, key, x, root->Left);
+            split1(root->left, key, x, root->left);
         }
         pushup(root);
     }
@@ -142,12 +147,12 @@ private:
             x = y = nullptr;
             return;
         }
-        if (!(key < root->Key)) {
+        if (!(key < root->key)) {
             x = root;
-            split2(root->Right, key, root->Right, y);
+            split2(root->right, key, root->right, y);
         } else {
             y = root;
-            split2(root->Left, key, x, root->Left);
+            split2(root->left, key, x, root->left);
         }
         pushup(root);
     }
@@ -157,14 +162,18 @@ private:
             return y;
         if (y == nullptr)
             return x;
-        if (x->Priority > y->Priority) {
-            x->Right = merge(x->Right, y);
+        if (x->priority > y->priority) {
+            x->right = merge(x->right, y);
             pushup(x);
             return x;
         } else {
-            y->Left = merge(x, y->Left);
+            y->left = merge(x, y->left);
             pushup(y);
             return y;
         }
     }
 };
+
+} // namespace FhqTreap
+
+#endif

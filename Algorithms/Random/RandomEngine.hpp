@@ -1,25 +1,37 @@
-class RandomEngine
-{
+#ifndef RANDOMENGINE_HPP
+#define RANDOMENGINE_HPP
+
+namespace RandowEngine {
+
+class RandomEngine {
 public:
-	RandomEngine(long long seed=233ll){ Seed=seed; }
-	int radInt(int n){
-		return radInt()%n;
+	RandomEngine(long long seed = 233ll) { Seed = seed; }
+	int nextInt(int n) {
+		return nextInt() % n;
 	}
-	int radInt(int l,int r){
-		return radInt(r-l)+l;
+
+	int nextInt(int l, int r) {
+		return nextInt(r - l) + l;
 	}
-	long long radLongLong(long long n){
-		return radLongLong()%n;
+
+	long long nextLongLong(long long n) {
+		return nextLongLong() % n;
 	}
-	long long radLongLong(long long l,long long r){
-		return radLongLong(r-l)%+l;
+
+	long long nextLongLong(long long l, long long r) {
+		return nextLongLong(r - l) % +l;
 	}
 private:
 	long long Seed;
-	int radInt(){
-		return Seed=(int)(Seed*482711ll%0x7fffffff);
+	int nextInt() {
+		return Seed = (int)(Seed * 482711ll % 0x7fffffff);
 	}
-	long long radLongLong(){
-		return Seed=(long long)(Seed*482711ll%0x7fffffffffffffff);
+	
+	long long nextLongLong() {
+		return Seed = (long long)(Seed * 482711ll % 0x7fffffffffffffff);
 	}
 }
+
+} // namespace RandomEngine
+
+#endif

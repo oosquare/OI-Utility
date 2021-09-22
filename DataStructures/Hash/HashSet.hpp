@@ -1,38 +1,43 @@
-template <typename T,int Lim>
-class HashSet
-{
+#ifndef HASHSET_HPP
+#define HASHSET_HPP
+
+namespace HashSet {
+
+template <typename T, int size, T mod>
+class HashSet {
 public:
-    void insert(T x){
-        int h=(x%mod+mod)%mod;
-        for(int i=Head[h];i;i=Set[i].Next){
-            if(Set[i].Weight==x){
+    void insert(T x) {
+        int h = (x % mod + mod) % mod;
+        for (int i = head[h]; i; i = nodes[i].Next) {
+            if (nodes[i].weight == x) {
                 return;
             }
         }
-        ++Total;
-        Set[Total].Next=Head[h];
-        Head[h]=Total;
-        Set[Total].Weight=x;
+        ++total;
+        nodes[total].Next = head[h];
+        head[h] = total;
+        nodes[total].weight = x;
     }
 
-    bool query(T x){
-        int h=(x%mod+mod)%mod;
-        for(int i=Head[h];i;i=Set[i].Next){
-            if(Set[i].Weight==x){
+    bool query(T x) {
+        int h = (x % mod + mod) % mod;
+        for (int i = head[h]; i; i = nodes[i].Next) {
+            if (nodes[i].weight == x) {
                 return true;
             }
         }
         return false;
     }
 private:
-    struct Node
-    {
-        T Weight;
+    struct Node {
+        T weight;
         int Next;
     };
-    Node Set[Lim];
-    int Head[Lim];
-    int Top;
-    int Total;
+    Node nodes[size];
+    int head[size];
+    int total;
 };
 
+} // namespace HashSet
+
+#endif
