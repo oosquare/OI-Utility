@@ -1,41 +1,43 @@
-template <typename T, int MaxSize>
-class SegmentTree 
-{
+#ifndef SEGMENTTREE_HPP
+#define SEGMENTTREE_HPP
+
+namespace SegmentTree {
+
+template <typename T, int size> class SegmentTree {
 public:
-    void init(int n) { Size = n; }
+    void init(int n) { length = n; }
 
-    void build(T arr[]) { build(1, 1, Size, arr); }
+    void build(T arr[]) { build(1, 1, length, arr); }
 
-    void modify(int left, int right, T key) { modify(1, 1, Size, left, right, key); }
+    void modify(int left, int right, T key) { modify(1, 1, length, left, right, key); }
 
-    T query(int left, int right) { return query(1, 1, Size, left, right); }
+    T query(int left, int right) { return query(1, 1, length, left, right); }
 
 private:
-    struct Node 
-    {
-        T Add, Sum;
-    } Tree[MaxSize];
-    int Size;
+    struct Node {
+        T add, sum;
+    } tree[size];
+    int length;
 
-    void pushup(int root) { Tree[root].Sum = Tree[root << 1].Sum + Tree[root << 1 | 1].Sum; }
+    void pushup(int root) { tree[root].sum = tree[root << 1].sum + tree[root << 1 | 1].sum; }
 
     void update(int root, int left, int right, T key) {
-        Tree[root].Add += key;
-        Tree[root].Sum += key * (right - left + 1);
+        tree[root].add += key;
+        tree[root].sum += key * (right - left + 1);
     }
 
     void pushdown(int root, int left, int right) {
-        if (Tree[root].Add == 0)
+        if (tree[root].add == 0)
             return;
         int mid = left + right >> 1;
-        update(root << 1, left, mid, Tree[root].Add);
-        update(root << 1 | 1, mid + 1, right, Tree[root].Add);
-        Tree[root].Add = 0;
+        update(root << 1, left, mid, tree[root].add);
+        update(root << 1 | 1, mid + 1, right, tree[root].add);
+        tree[root].add = 0;
     }
 
     void build(int root, int left, int right, T arr[]) {
         if (left == right) {
-            Tree[root].Sum = arr[left];
+            tree[root].sum = arr[left];
             return;
         }
         int mid = left + right >> 1;
@@ -60,7 +62,7 @@ private:
 
     T query(int root, int left, int right, int qleft, int qright) {
         if (qleft <= left && right <= qright)
-            return Tree[root].Sum;
+            return tree[root].sum;
         int mid = left + right >> 1;
         pushdown(root, left, right);
         T res = 0;
@@ -71,3 +73,7 @@ private:
         return res;
     }
 };
+
+} // namespace SegmentTree
+
+#endif

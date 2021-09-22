@@ -1,48 +1,52 @@
+#ifndef SCAPEGOATTREE_HPP
+#define SCAPEGOATTREE_HPP
+
 #include <limits>
 
-template <typename T, int MaxSize>
-class ScapegoatTree {
+namespace ScapegoatTree {
+
+template <typename T, int size> class ScapegoatTree {
 public:
     void insert(T key) {
-        int o = Root;
-        insert(Root, key);
+        int o = root;
+        insert(root, key);
         check(o, key);
     }
 
     int rank(T key) {
-        int x = Root, res = 1;
+        int x = root, res = 1;
         while (x) {
-            if (!(Tree[x].Key < key)) { // Tree[x].Key >= key
-                x = Tree[x][0];
+            if (!(tree[x].key < key)) { // tree[x].key >= key
+                x = tree[x][0];
             } else {
-                res += Tree[Tree[x][0]].Fact + Tree[x].Exist;
-                x = Tree[x][1];
+                res += tree[tree[x][0]].fact + tree[x].exist;
+                x = tree[x][1];
             }
         }
         return res;
     }
 
     T rankat(int rk) {
-        if (rk < 1 || rk > Tree[Root].Size)
+        if (rk < 1 || rk > tree[root].size)
             return T();
-        int x = Root;
+        int x = root;
         while (x) {
-            if (Tree[x].Exist && Tree[Tree[x][0]].Fact + 1 == rk) {
-                return Tree[x].Key;
-            } else if (Tree[Tree[x][0]].Fact >= rk) {
-                x = Tree[x][0];
+            if (tree[x].exist && tree[tree[x][0]].fact + 1 == rk) {
+                return tree[x].key;
+            } else if (tree[tree[x][0]].fact >= rk) {
+                x = tree[x][0];
             } else {
-                rk -= Tree[Tree[x][0]].Fact + Tree[x].Exist;
-                x = Tree[x][1];
+                rk -= tree[tree[x][0]].fact + tree[x].exist;
+                x = tree[x][1];
             }
         }
         return T();
     }
 
     void remove(T key) {
-        remove(Root, rank(key));
-        if (Tree[Root].Size * Alpha > Tree[Root].Fact)
-            rebuild(Root);
+        remove(root, rank(key));
+        if (tree[root].size * Alpha > tree[root].fact)
+            rebuild(root);
     }
 
     T previous(T key) {
@@ -55,7 +59,7 @@ public:
 
     T next(T key) {
         int rk = rank(key + 1);
-        if (rk > Tree[Root].Size)
+        if (rk > tree[root].size)
             return std::numeric_limits<T>::max();
         else
             return rankat(rk);
@@ -64,73 +68,73 @@ public:
 private:
     static constexpr double Alpha = 0.718;
     struct Node {
-        T Key;
-        int Left, Right, Size, Fact;
-        bool Exist;
-        int &operator[](int x) { return x == 0 ? Left : Right; }
-    } Tree[MaxSize];
-    int Root, UUID, Trash[MaxSize], Top, Temp[MaxSize], Length;
+        T key;
+        int left, right, size, fact;
+        bool exist;
+        int &operator[](int x) { return x == 0 ? left : right; }
+    } tree[size];
+    int root, uuid, trash[size], top, tmp[size], length;
 
     int create(T key) {
-        int root = Top ? Trash[Top--] : ++UUID;
-        Tree[root] = { key, 0, 0, 1, 1, true };
+        int root = top ? trash[top--] : ++uuid;
+        tree[root] = { key, 0, 0, 1, 1, true };
         return root;
     }
 
     void pushup(int x) {
-        Tree[x].Size = Tree[Tree[x][0]].Size + Tree[Tree[x][1]].Size + 1;
-        Tree[x].Fact = Tree[Tree[x][0]].Fact + Tree[Tree[x][1]].Fact + Tree[x].Exist;
+        tree[x].size = tree[tree[x][0]].size + tree[tree[x][1]].size + 1;
+        tree[x].fact = tree[tree[x][0]].fact + tree[tree[x][1]].fact + tree[x].exist;
     }
 
     void enumerate(int x) {
         if (!x)
             return;
-        enumerate(Tree[x][0]);
-        if (Tree[x].Exist)
-            Temp[++Length] = x;
+        enumerate(tree[x][0]);
+        if (tree[x].exist)
+            tmp[++length] = x;
         else
-            Trash[++Top] = x;
-        enumerate(Tree[x][1]);
+            trash[++top] = x;
+        enumerate(tree[x][1]);
     }
 
     void make(int &x, int l, int r) {
         int mid = (l + r) >> 1;
-        x = Temp[mid];
+        x = tmp[mid];
         if (l == r) {
-            T k = Tree[x].Key;
-            Tree[x] = { k, 0, 0, 1, 1, true };
+            T k = tree[x].key;
+            tree[x] = { k, 0, 0, 1, 1, true };
             return;
         }
         if (l < mid)
-            make(Tree[x][0], l, mid - 1);
+            make(tree[x][0], l, mid - 1);
         else
-            Tree[x][0] = 0;
-        make(Tree[x][1], mid + 1, r);
+            tree[x][0] = 0;
+        make(tree[x][1], mid + 1, r);
         pushup(x);
     }
 
     void rebuild(int &x) {
-        Length = 0;
+        length = 0;
         enumerate(x);
-        if (Length)
-            make(x, 1, Length);
+        if (length)
+            make(x, 1, length);
         else
             x = 0;
     }
 
     bool imblanced(int x) {
-        return Tree[x].Fact * Alpha <= max(Tree[Tree[x][0]].Fact, Tree[Tree[x][1]].Fact);
+        return tree[x].fact * Alpha <= max(tree[tree[x][0]].fact, tree[tree[x][1]].fact);
     }
 
     void check(int x, T key) {
-        int s = !(Tree[x].Key < key) ? 0 : 1; // key <= Tree[x].Key
-        while (Tree[x][s]) {
-            if (imblanced(Tree[x][s])) {
-                rebuild(Tree[x][s]);
+        int s = !(tree[x].key < key) ? 0 : 1; // key <= tree[x].key
+        while (tree[x][s]) {
+            if (imblanced(tree[x][s])) {
+                rebuild(tree[x][s]);
                 return;
             }
-            x = Tree[x][s];
-            s = !(Tree[x].Key < key) ? 0 : 1; // key <= Tree[x].Key
+            x = tree[x][s];
+            s = !(tree[x].key < key) ? 0 : 1; // key <= tree[x].key
         }
     }
 
@@ -139,23 +143,27 @@ private:
             x = create(key);
             return;
         }
-        if (!(Tree[x].Key < key)) // key <= Tree[x].Key
-            insert(Tree[x][0], key);
+        if (!(tree[x].key < key)) // key <= tree[x].key
+            insert(tree[x][0], key);
         else
-            insert(Tree[x][1], key);
+            insert(tree[x][1], key);
         pushup(x);
     }
 
     void remove(int &x, int rk) {
-        if (Tree[x].Exist && Tree[Tree[x][0]].Fact + 1 == rk) {
-            Tree[x].Exist = 0;
+        if (tree[x].exist && tree[tree[x][0]].fact + 1 == rk) {
+            tree[x].exist = 0;
             pushup(x);
             return;
         }
-        if (Tree[Tree[x][0]].Fact + Tree[x].Exist >= rk)
-            remove(Tree[x][0], rk);
+        if (tree[tree[x][0]].fact + tree[x].exist >= rk)
+            remove(tree[x][0], rk);
         else
-            remove(Tree[x][1], rk - Tree[Tree[x][0]].Fact - Tree[x].Exist);
+            remove(tree[x][1], rk - tree[tree[x][0]].fact - tree[x].exist);
         pushup(x);
     }
 };
+
+} // namespace ScapegoatTree
+
+#endif

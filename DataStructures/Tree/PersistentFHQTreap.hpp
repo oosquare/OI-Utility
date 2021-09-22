@@ -1,114 +1,118 @@
-template <typename T, int MaxSize>
-class PersistentFHQTreap 
+#ifndef PERSISTENTFHQTREAP_HPP
+#define PERSISTENTFHQTREAP_HPP
+
+namespace PersistentFhqTreap {
+
+template <typename T, int size> class PersistentFhqTreap 
 {
 public:
-    PersistentFHQTreap() { Seed = (int)(MaxSize * 565463ll % 2147483647); }
+    PersistentFhqTreap() { seed = (int)(size * 565463ll % 2147483647); }
 
     void insert(T key, int present, int past) {
-        Root[present] = Root[past];
+        root[present] = root[past];
         int x, y, z;
-        split(Root[present], key - 1, x, y);
-        Root[present] = merge(merge(x, create(key)), y);
+        split(root[present], key - 1, x, y);
+        root[present] = merge(merge(x, create(key)), y);
     }
 
     void remove(T key, int present, int past) {
-        Root[present] = Root[past];
+        root[present] = root[past];
         int x, y, z;
-        split(Root[present], key, x, z);
+        split(root[present], key, x, z);
         split(x, key - 1, x, y);
         if(y) {
-            y = merge(Tree[y].Left, Tree[y].Right);
+            y = merge(tree[y].left, tree[y].right);
         }
-        Root[present] = merge(merge(x, y), z);
+        root[present] = merge(merge(x, y), z);
     }
 
     int rank(T key, int present, int past) {
-        Root[present] = Root[past];
+        root[present] = root[past];
         int x, y, ans;
-        split(Root[present], key - 1, x, y);
-        ans = Tree[x].Size + 1;
-        Root[present] = merge(x, y);
+        split(root[present], key - 1, x, y);
+        ans = tree[x].size + 1;
+        root[present] = merge(x, y);
         return ans;
     }
 
     T at(int r, int present, int past) {
-        Root[present] = Root[past];
-        int root = Root[present];
+        root[present] = root[past];
+        int root = root[present];
         while (true) {
-            if (Tree[Tree[root].Left].Size + 1 == r) {
+            if (tree[tree[root].left].size + 1 == r) {
                 break;
-            } else if (Tree[Tree[root].Left].Size + 1 > r) {
-                root = Tree[root].Left;
+            } else if (tree[tree[root].left].size + 1 > r) {
+                root = tree[root].left;
             } else {
-                r -= Tree[Tree[root].Left].Size + 1;
-                root = Tree[root].Right;
+                r -= tree[tree[root].left].size + 1;
+                root = tree[root].right;
             }
         }
-        return Tree[root].Key;
+        return tree[root].key;
     }
 
     T lower(T key, int present, int past) {
-        Root[present] = Root[past];
+        root[present] = root[past];
         int x, y, root;
         T ans;
-        split(Root[present], key - 1, x, y);
+        split(root[present], key - 1, x, y);
         root = x;
-        while (Tree[root].Right) root = Tree[root].Right;
-        ans = Tree[root].Key;
-        Root[present] = merge(x, y);
+        while (tree[root].right) root = tree[root].right;
+        ans = tree[root].key;
+        root[present] = merge(x, y);
         return ans;
     }
 
     T upper(T key, int present, int past) {
-        Root[present] = Root[past];
+        root[present] = root[past];
         int x, y, root;
         T ans;
-        split(Root[present], key, x, y);
+        split(root[present], key, x, y);
         root = y;
-        while (Tree[root].Left) root = Tree[root].Left;
-        ans = Tree[root].Key;
-        Root[present] = merge(x, y);
+        while (tree[root].left) root = tree[root].left;
+        ans = tree[root].key;
+        root[present] = merge(x, y);
         return ans;
     }
 
     bool find(T key, int present) {
         int x, y, z;
-        split(Root[present], key, x, z);
+        split(root[present], key, x, z);
         split(x, key - 1, x, y);
         bool ans;
-        if(Tree[y].Size) ans = true;
+        if(tree[y].size) ans = true;
         else ans = false;
-        Root[present] = merge(merge(x, y), z);
+        root[present] = merge(merge(x, y), z);
         return ans;
     }
 
 private:
     struct Node {
-        T Key;
-        int Left, Right, Size, Priority;
-    } Tree[MaxSize * 50 + 10];
-    int Seed, Total, Root[MaxSize];
+        T key;
+        int left, right, size, priority;
+    } tree[size * 50 + 10];
+    int seed, total, root[size];
 
-    int rad() { return Seed = int(Seed * 482711ll % 2147483647); }
+    int rad() { return seed = int(seed * 482711ll % 2147483647); }
 
     int create(int key) {
-        int root = ++Total;
-        Tree[root].Key = key;
-        Tree[root].Size = 1;
-        Tree[root].Left = Tree[root].Right = 0;
-        Tree[root].Priority = rad();
+        int root = ++total;
+        tree[root].key = key;
+        tree[root].size = 1;
+        tree[root].left = tree[root].right = 0;
+        tree[root].priority = rad();
         return root;
     }
 
     int copy(int root) {
-        int newroot = ++Total;
-        Tree[newroot] = Tree[root];
+        int newroot = ++total;
+        tree[newroot] = tree[root];
         return newroot;
     }
 
     void pushup(int root) {
         if(root != 0)
-            Tree[root].Size = Tree[Tree[root].Left].Size + Tree[Tree[root].Right].Size + 1; 
+            tree[root].size = tree[tree[root].left].size + tree[tree[root].right].size + 1; 
     }
 
     void split(int root, int key, int &x, int &y) {
@@ -116,13 +120,13 @@ private:
             x = y = 0;
             return;
         }
-        if (Tree[root].Key <= key) {
+        if (tree[root].key <= key) {
             x = copy(root);
-            split(Tree[x].Right, key, Tree[x].Right, y);
+            split(tree[x].right, key, tree[x].right, y);
             pushup(x);
         } else {
             y = copy(root);
-            split(Tree[y].Left, key, x, Tree[y].Left);
+            split(tree[y].left, key, x, tree[y].left);
             pushup(y);
         }
         
@@ -132,16 +136,20 @@ private:
     int merge(int x, int y) {
         if (x == 0 || y == 0)
             return x + y;
-        if (Tree[x].Priority > Tree[y].Priority) {
+        if (tree[x].priority > tree[y].priority) {
             int z = copy(x);
-            Tree[z].Right = merge(Tree[z].Right, y);
+            tree[z].right = merge(tree[z].right, y);
             pushup(z);
             return z;
         } else {
             int z = copy(y);
-            Tree[z].Left = merge(x, Tree[z].Left);
+            tree[z].left = merge(x, tree[z].left);
             pushup(z);
             return z;
         }
     }
 };
+
+} // namespace PersistentFhqTreap
+
+#endif

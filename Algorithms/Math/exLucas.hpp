@@ -1,4 +1,7 @@
-namespace exLucas {
+#ifndef EXLUCAS_HPP
+#define EXLUCAS_HPP
+
+namespace ExLucas {
 
 typedef long long ll;
 
@@ -16,13 +19,13 @@ ll power(ll x, ll k, ll p) {
     return res % p;
 }
 
-ll exGCD(ll a, ll b, ll &x, ll &y) {
+ll exgcd(ll a, ll b, ll &x, ll &y) {
     if (b == 0) {
         x = 1;
         y = 0;
         return a;
     } else {
-        int d = exGCD(b, a % b, x, y);
+        int d = exgcd(b, a % b, x, y);
         int t = x;
         x = y;
         y = t - a / b * y;
@@ -32,7 +35,7 @@ ll exGCD(ll a, ll b, ll &x, ll &y) {
 
 ll inverse(ll x, ll p) {
     ll x0, y0;
-    exGCD(x, p, x0, y0);
+    exgcd(x, p, x0, y0);
     return (x0 + p) % p;
 }
 
@@ -97,4 +100,6 @@ ll calculate(ll n, ll m, ll p) {
     return CRT(p);
 }
 
-} // namespace exLucas
+} // namespace ExLucas
+
+#endif

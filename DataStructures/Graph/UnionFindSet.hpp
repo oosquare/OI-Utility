@@ -1,28 +1,36 @@
-template <int Lim>
-class UnionFindSet
-{
+#ifndef UNIONFINDSET_HPP
+#define UNIONFINDSET_HPP
+
+namespace UnionFindSet {
+
+template <int size>
+class UnionFindSet {
 public:
-	void clear(int n){
-		for(int i=0;i<=n;i++){
-			Father[i]=i;
+	void clear(int n) {
+		for (int i = 0; i <= n; i++) {
+			father[i] = i;
 		}
 	}
 
-	void query(int x){
-		if(x==Father[x]){
+	void query(int x) {
+		if (x == father[x]) {
 			return x;
-		}else{
-			return Father[x]=query(Father[x]);
+		} else {
+			return father[x] = query(father[x]);
 		}
 	}
 
-	void merge(int x,int y){
-		x=query(x);
-		y=query(y);
-		if(x!=y){
-			Father[y]=x;
+	void merge(int x, int y) {
+		x = query(x);
+		y = query(y);
+		if (x != y) {
+			father[y] = x;
 		}
 	}
 private:
-	int Father[Lim];
-}
+	int father[size];
+};
+
+} // namespace UnionFindSet
+
+#endif

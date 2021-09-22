@@ -1,7 +1,11 @@
+#ifndef SPLAY_HPP
+#define SPLAY_HPP
+
 #include <limits>
 
-template <typename T, int MaxSize>
-class Splay {
+namespace Splay {
+
+template <typename T, int size> class Splay {
 public:
     Splay() {
         insert(std::numeric_limits<T>::max());
@@ -9,133 +13,135 @@ public:
     }
 
     void insert(T key) {
-        int x = Root, f = 0;
-        while (x != 0 && Tree[x].Key != key) {
+        int x = root, f = 0;
+        while (x != 0 && tree[x].key != key) {
             f = x;
             x = select(x, key);
         }
         if (x != 0) {
-            ++Tree[x].Count;
+            ++tree[x].count;
         } else {
             x = create(key);
             if (f)
                 select(f, key) = x;
-            Tree[x].Father = f;    
+            tree[x].father = f;    
         }
         splay(x);
     }
 
     int rank(T key) {
         findImpl(key);
-        return Tree[Tree[Root][0]].Size;
+        return tree[tree[root][0]].size;
     }
 
     T rankat(int rk) {
         rk += 1;
-        int x = Root;
+        int x = root;
         while (true) {
-            int ls = Tree[Tree[x][0]].Size;
-            if (Tree[x][0] && rk <= ls) {
-                x = Tree[x][0];
-            } else if (rk > ls + Tree[x].Count) {
-                rk -= ls + Tree[x].Count;
-                x = Tree[x][1];
+            int ls = tree[tree[x][0]].size;
+            if (tree[x][0] && rk <= ls) {
+                x = tree[x][0];
+            } else if (rk > ls + tree[x].count) {
+                rk -= ls + tree[x].count;
+                x = tree[x][1];
             } else {
-                return Tree[x].Key;
+                return tree[x].key;
             }
         }
     }
 
     T previous(T key) {
         int x = previousImpl(key);
-        return x == 0 ? std::numeric_limits<T>::min() : Tree[x].Key;
+        return x == 0 ? std::numeric_limits<T>::min() : tree[x].key;
     }
 
     T next(T key) {
         int x = nextImpl(key);
-        return x == 0 ? std::numeric_limits<T>::max() : Tree[x].Key;
+        return x == 0 ? std::numeric_limits<T>::max() : tree[x].key;
     }
 
     void remove(T key) {
         int p = previousImpl(key), n = nextImpl(key);
         splay(p); splay(n, p);
-        int x = Tree[n][0];
-        if (Tree[x].Count > 1) {
-            --Tree[x].Count;
+        int x = tree[n][0];
+        if (tree[x].count > 1) {
+            --tree[x].count;
             splay(x);
         } else {
-            Tree[n][0] = 0;
+            tree[n][0] = 0;
         }
     }
 
     bool find(T key) {
         findImpl(key);
-        return Tree[Root].Key == key;
+        return tree[root].key == key;
     }
 private:
     struct Node {
-        T Key; int Left, Right, Father, Size, Count;
-        int &operator[](int x) { return x == 0 ? Left : Right; }
-    } Tree[MaxSize];
-    int Root, UUID;
+        T key; int left, right, father, size, count;
+        int &operator[](int x) { return x == 0 ? left : right; }
+    } tree[size];
+    int root, uuid;
 
-    void pushup(int x) { Tree[x].Size = Tree[Tree[x][0]].Size + Tree[Tree[x][1]].Size + Tree[x].Count; }
+    void pushup(int x) { tree[x].size = tree[tree[x][0]].size + tree[tree[x][1]].size + tree[x].count; }
 
-    int which(int x) { return x == Tree[Tree[x].Father][1]; }
+    int which(int x) { return x == tree[tree[x].father][1]; }
 
-    int &select(int now, int key) { return Tree[now][Tree[now].Key < key]; }
+    int &select(int now, int key) { return tree[now][tree[now].key < key]; }
 
-    int create(T key) { Tree[++UUID] = { key, 0, 0, 0, 1, 1 }; return UUID; }
+    int create(T key) { tree[++uuid] = { key, 0, 0, 0, 1, 1 }; return uuid; }
 
     void rotate(int x) {
-        int y = Tree[x].Father, z = Tree[y].Father, k = which(x), w = Tree[x][k ^ 1];
-        Tree[y][k] = w;
-        Tree[w].Father = y;
-        Tree[z][which(y)] = x;
-        Tree[x].Father = z;
-        Tree[x][k ^ 1] = y;
-        Tree[y].Father = x;
+        int y = tree[x].father, z = tree[y].father, k = which(x), w = tree[x][k ^ 1];
+        tree[y][k] = w;
+        tree[w].father = y;
+        tree[z][which(y)] = x;
+        tree[x].father = z;
+        tree[x][k ^ 1] = y;
+        tree[y].father = x;
         pushup(y);
         pushup(x);
     }
 
     void splay(int x, int target = 0) {
-        while (Tree[x].Father != target) {
-            int y = Tree[x].Father, z = Tree[y].Father;
+        while (tree[x].father != target) {
+            int y = tree[x].father, z = tree[y].father;
             if (z != target)
                 which(x) == which(y) ? rotate(y) : rotate(x);
             rotate(x);
         }
         if (target == 0)
-            Root = x;
+            root = x;
     }
 
     void findImpl(T key) {
-        if (!Root)
+        if (!root)
             return;
-        int x = Root;
-        while (select(x, key) && Tree[x].Key != key)
+        int x = root;
+        while (select(x, key) && tree[x].key != key)
             x = select(x, key);
         splay(x);
     }
 
-    
-
     int previousImpl(T key) {
         findImpl(key);
-        if (Tree[Root].Key < key) return Root;
-        int x = Tree[Root][0];
-        while (Tree[x][1])
-            x = Tree[x][1];
+        if (tree[root].key < key) return root;
+        int x = tree[root][0];
+        while (tree[x][1])
+            x = tree[x][1];
         return x;
     }
 
     int nextImpl(T key) {
         findImpl(key);
-        if (Tree[Root].Key > key) return Root;
-        int x = Tree[Root][1];
-        while (Tree[x][0])
-            x = Tree[x][0];
+        if (tree[root].key > key) return root;
+        int x = tree[root][1];
+        while (tree[x][0])
+            x = tree[x][0];
         return x;
     }
 };
+
+} // namespace Splay
+
+#endif

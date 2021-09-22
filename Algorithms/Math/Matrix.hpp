@@ -1,4 +1,9 @@
-template <typename T>
+#ifndef MATRIX_HPP
+#define MATRIX_HPP
+
+namespace Matrix {
+
+template <typename T, int size>
 class Matrix {
 public:
     Matrix(bool v) : vaild(v), mod(1) {}
@@ -66,7 +71,11 @@ public:
         return res;
     }
 private:
-    T data[105][105], mod;
+    T data[size + 1][size + 1], mod;
     int row, column;
     bool vaild;
 };
+
+} // namespace Matrix
+
+#endif
