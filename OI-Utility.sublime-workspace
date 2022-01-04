@@ -1,0 +1,1269 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"nm",
+				"namespacedef"
+			],
+			[
+				"prior",
+				"priority_queue"
+			],
+			[
+				"co",
+				"continue"
+			],
+			[
+				"priro",
+				"priority_queue"
+			],
+			[
+				"in",
+				"init"
+			],
+			[
+				"tie",
+				"timer"
+			],
+			[
+				"ge",
+				"getRoot"
+			],
+			[
+				"pub",
+				"pushBack"
+			],
+			[
+				"pb",
+				"pushBack"
+			],
+			[
+				"dise",
+				"discretize"
+			],
+			[
+				"so",
+				"solve"
+			],
+			[
+				"di",
+				"divide"
+			],
+			[
+				"It",
+				"Item"
+			],
+			[
+				"cot",
+				"continue"
+			],
+			[
+				"s2",
+				"solve2"
+			],
+			[
+				"se",
+				"second"
+			],
+			[
+				"1",
+				"10000000"
+			],
+			[
+				"get",
+				"getRoot"
+			],
+			[
+				"jva",
+				"java"
+			],
+			[
+				"nde",
+				"namespacedef"
+			],
+			[
+				"pus",
+				"pushdown"
+			],
+			[
+				"up",
+				"updateReverse"
+			],
+			[
+				"ml",
+				"mul"
+			],
+			[
+				"l",
+				"LinkCutTree"
+			],
+			[
+				"pu",
+				"pushdown"
+			],
+			[
+				"push",
+				"pushdown"
+			],
+			[
+				"te",
+				"tree"
+			],
+			[
+				"ed",
+				"edges"
+			],
+			[
+				"dfs",
+				"dfs1"
+			],
+			[
+				"s",
+				"sum"
+			],
+			[
+				"fir",
+				"first2"
+			],
+			[
+				"fi",
+				"first1"
+			],
+			[
+				"m",
+				"min"
+			],
+			[
+				"d",
+				"dfs2"
+			],
+			[
+				"nam",
+				"namespacedef"
+			],
+			[
+				"gs",
+				"gsam"
+			],
+			[
+				"Suf",
+				"GeneralSuffixAutomaton"
+			],
+			[
+				"isne",
+				"insert"
+			],
+			[
+				"node",
+				"nodeContain"
+			],
+			[
+				"ios",
+				"iostream"
+			],
+			[
+				"upda",
+				"updateAdd"
+			],
+			[
+				"updat",
+				"updateAdd"
+			],
+			[
+				"wh",
+				"which"
+			],
+			[
+				"cl",
+				"clone"
+			],
+			[
+				"df",
+				"dfn"
+			],
+			[
+				"un",
+				"unordered_set"
+			],
+			[
+				"le",
+				"left"
+			],
+			[
+				"S",
+				"SuffixAutomaton"
+			],
+			[
+				"stru",
+				"struct"
+			],
+			[
+				"ma",
+				"maxl"
+			],
+			[
+				"st",
+				"start"
+			],
+			[
+				"fo",
+				"found"
+			],
+			[
+				"eq",
+				"query"
+			],
+			[
+				"Sta",
+				"SteadyStack"
+			],
+			[
+				"he",
+				"height"
+			],
+			[
+				"Sa",
+				"SuffixArray"
+			],
+			[
+				"ca",
+				"calc"
+			],
+			[
+				"vp",
+				"vpmax"
+			],
+			[
+				"vmi",
+				"vmmin"
+			],
+			[
+				"U",
+				"UnionFindSet"
+			],
+			[
+				"pr",
+				"preprocessTable"
+			],
+			[
+				"str",
+				"str1"
+			],
+			[
+				"io",
+				"iomanip"
+			],
+			[
+				"pre",
+				"preprocessSuffixArray"
+			],
+			[
+				"qu",
+				"queryMax"
+			],
+			[
+				"ha",
+				"has_value"
+			],
+			[
+				"ba",
+				"base2"
+			],
+			[
+				"unor",
+				"unordered_map"
+			],
+			[
+				"unorder",
+				"unordered_map"
+			],
+			[
+				"ax",
+				"maxm"
+			],
+			[
+				"p",
+				"push"
+			],
+			[
+				"cla",
+				"clear"
+			],
+			[
+				"w",
+				"write"
+			],
+			[
+				"wri",
+				"write"
+			],
+			[
+				"do",
+				"double"
+			],
+			[
+				"q",
+				"queryExist"
+			],
+			[
+				"pd",
+				"pushdown"
+			],
+			[
+				"puh",
+				"pushdown"
+			],
+			[
+				"mu",
+				"multiply"
+			],
+			[
+				"que",
+				"queryProd"
+			],
+			[
+				"mxn",
+				"maxnm"
+			],
+			[
+				"col",
+				"Color"
+			],
+			[
+				"COL",
+				"Color"
+			],
+			[
+				"pri",
+				"priority"
+			],
+			[
+				"ds",
+				"dis2"
+			],
+			[
+				"des",
+				"discretize"
+			],
+			[
+				"f",
+				"false"
+			],
+			[
+				"cn",
+				"cnt1"
+			],
+			[
+				"tp",
+				"top"
+			],
+			[
+				"begi",
+				"beginend"
+			],
+			[
+				"con",
+				"connected"
+			],
+			[
+				"r",
+				"roller"
+			],
+			[
+				"c",
+				"cnt"
+			],
+			[
+				"Bo",
+				"Board"
+			],
+			[
+				"cehc",
+				"checkHorizontal"
+			],
+			[
+				"be",
+				"beginend"
+			],
+			[
+				"beg",
+				"beginend"
+			],
+			[
+				"map",
+				"maxp"
+			],
+			[
+				"Re",
+				"Rectangle"
+			],
+			[
+				"sl",
+				"selected"
+			],
+			[
+				"sele",
+				"selectLast"
+			],
+			[
+				"da",
+				"datemp"
+			],
+			[
+				"uno",
+				"unordered_set"
+			],
+			[
+				"ex",
+				"exit"
+			],
+			[
+				"ev",
+				"evidences"
+			],
+			[
+				"oi",
+				"oifast"
+			],
+			[
+				"wal",
+				"walkCircle"
+			],
+			[
+				"re",
+				"remove"
+			],
+			[
+				"la",
+				"last2"
+			],
+			[
+				"wa",
+				"walkCircle"
+			],
+			[
+				"walk",
+				"walkTree"
+			],
+			[
+				"ve",
+				"vector"
+			],
+			[
+				"R",
+				"Range"
+			],
+			[
+				"pm",
+				"pmin"
+			],
+			[
+				"push_",
+				"push_front"
+			],
+			[
+				"P",
+				"Point"
+			],
+			[
+				"to",
+				"toString"
+			],
+			[
+				"sub",
+				"subImplOpposite"
+			],
+			[
+				"n",
+				"num"
+			],
+			[
+				"vec",
+				"vector"
+			],
+			[
+				"max",
+				"maxs"
+			],
+			[
+				"su",
+				"sumdis"
+			],
+			[
+				"Ci",
+				"City"
+			],
+			[
+				"D",
+				"DEBUG"
+			],
+			[
+				"ci",
+				"continue"
+			],
+			[
+				"bg",
+				"beginend"
+			],
+			[
+				"gr",
+				"graph"
+			],
+			[
+				"ty",
+				"type"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/User/C++ for Sublime Text.sublime-build",
+					""
+				],
+				[
+					"Packages/User/C++ for Sublime Text.sublime-build",
+					"Build"
+				],
+				[
+					"Packages/User/C++ for Sublime Text.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/User/C++ for Sublime Text.sublime-build",
+					"Run In Terminal"
+				]
+			],
+			[
+				"Packages/User/C++ for Sublime Text.sublime-build",
+				"Run In Terminal"
+			]
+		],
+		[
+			[
+				[
+					"Packages/User/C++ for Sublime Text.sublime-build",
+					""
+				],
+				[
+					"Packages/User/C++ for Sublime Text.sublime-build",
+					"Build"
+				],
+				[
+					"Packages/User/C++ for Sublime Text.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/User/C++ for Sublime Text.sublime-build",
+					"Run In Terminal"
+				],
+				[
+					"Packages/User/C++ for Sublime Text.sublime-build",
+					"Debug"
+				]
+			],
+			[
+				"Packages/User/C++ for Sublime Text.sublime-build",
+				"Run"
+			]
+		],
+		[
+			[
+				[
+					"Packages/User/Java for Sublime Text.sublime-build",
+					""
+				],
+				[
+					"Packages/User/Java for Sublime Text.sublime-build",
+					"Build"
+				],
+				[
+					"Packages/User/Java for Sublime Text.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/User/Java for Sublime Text.sublime-build",
+					"Run In Terminal"
+				]
+			],
+			[
+				"Packages/User/Java for Sublime Text.sublime-build",
+				"Run"
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"pci",
+				"Package Control: Install Package"
+			],
+			[
+				"pcr",
+				"Package Control: Remove Package"
+			],
+			[
+				"colo",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"nst colo",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"PCI",
+				"Package Control: Install Package"
+			],
+			[
+				"pcl",
+				"Package Control: List Packages"
+			],
+			[
+				"Package Control: re",
+				"Package Control: Remove Package"
+			],
+			[
+				"term",
+				"Preferences: Terminus Key Bindings"
+			],
+			[
+				"c",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"livereload",
+				"LiveReload: Enable/disable plug-ins"
+			],
+			[
+				"pce",
+				"Package Control: Enable Package"
+			],
+			[
+				"pcd",
+				"Package Control: Disable Package"
+			],
+			[
+				"Snippet: ",
+				"Snippet: oi"
+			],
+			[
+				"pcre",
+				"Package Control: Remove Package"
+			],
+			[
+				"pacin",
+				"Package Control: Install Package"
+			],
+			[
+				"pa co in",
+				"Package Control: Install Package"
+			],
+			[
+				"packa co inst",
+				"Package Control: Install Package"
+			],
+			[
+				"packa in",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Install Package Control"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 611.0,
+		"history":
+		[
+			"echo ss",
+			"ls",
+			"exit",
+			"exit()",
+			"dir",
+			"ls"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/Projects/OI-Utility",
+		"/D/Projects/OI-Utility/Algorithms",
+		"/D/Projects/OI-Utility/Algorithms/Math",
+		"/D/Projects/OI-Utility/DataStructures"
+	],
+	"file_history":
+	[
+		"/D/Projects/OI-Utility/Algorithms/Random/RandomEngine.hpp",
+		"/D/Projects/OI-Utility/DataStructures/Tree/PersistentFHQTreap.hpp",
+		"/D/Projects/OI-Utility/DataStructures/Tree/FHQTreap.hpp",
+		"/D/Projects/OI-Utility/Algorithms/String/GeneralSuffixAutomaton.hpp",
+		"/D/Projects/OI-Codes/Storage/Luogu/P6139-【模板】广义后缀自动机.cpp",
+		"/D/Projects/OI-Codes/project.cpp",
+		"/C/Users/Justin Chen/Downloads/P3292_1.in",
+		"/C/Users/Justin Chen/Downloads/P3292_1.out",
+		"/D/Projects/OI-Codes/Storage/Luogu/P3292-幸运数字.cpp",
+		"/D/Projects/OI-Codes/Storage/Luogu/P3834-【模板】可持久化线段树.cpp",
+		"/D/Videos/孙笑川与邻居互动（未消音）.mp4",
+		"/D/Projects/OI-Codes/Storage/Luogu/P4735-最大异或和.cpp",
+		"/C/Users/Justin Chen/Desktop/users.json",
+		"/C/Users/Justin Chen/Desktop/token",
+		"/C/Users/Justin Chen/Desktop/tmp/clyz.png",
+		"/C/Users/Justin Chen/Desktop/f9dcd100baa1cd116b62e7fdb512c8fcc2ce2d12.jpg",
+		"/C/Users/Justin Chen/Desktop/tmp/paint.py",
+		"/D/Projects/OI-Codes/Storage/Codeforces/1111E-Tree.cpp",
+		"/D/Projects/OI-Codes/Storage/Luogu/P5680-共享单车.cpp",
+		"/D/Projects/OI-Codes/Storage/Luogu/P4103-大工程.cpp",
+		"/D/Projects/OI-Codes/Storage/Luogu/P4242-树上的毒瘤.cpp",
+		"/D/Projects/OI-Codes/Utility/FasterQuickIO.cpp",
+		"/D/Projects/OI-Codes/Storage/Luogu/P2486-染色.cpp",
+		"/D/Projects/OI-Codes/Storage/Luogu/P2495-消耗战.cpp",
+		"/D/Projects/OI-Codes/tmp.cpp",
+		"/D/Projects/OI-Codes/Storage/Luogu/P2056-捉迷藏.cpp",
+		"/D/Projects/OI-Codes/Storage/Luogu/P3241-开店.cpp",
+		"/D/Projects/OI-Codes/Storage/Luogu/P6329-震波.cpp",
+		"/D/Projects/OI-Codes/Storage/Luogu/P5306-Transport.cpp",
+		"/D/Programs/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/bits/stl_heap.h",
+		"/D/Programs/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/bits/stl_algo.h",
+		"/D/Projects/OI-Codes/Storage/Luogu/P6326-Shopping.cpp",
+		"/C/Users/Justin Chen/Downloads/P6326_2.in",
+		"/C/Users/Justin Chen/Downloads/P6326_1.in",
+		"/C/Users/Justin Chen/Downloads/P6326_1.out",
+		"/C/Users/Justin Chen/Downloads/P6326_2.out",
+		"/D/Programs/Sublime Text/Data/Packages/User/C++ for Sublime Text.sublime-build",
+		"/C/Users/Justin Chen/Downloads/P3060_3.in",
+		"/C/Users/Justin Chen/Downloads/P3060_3.out",
+		"/D/Projects/OI-Codes/Storage/Codeforces/293E-Close Vertices.cpp",
+		"/D/Projects/OI-Codes/Storage/Luogu/P4186-Cow at Large G.cpp",
+		"/C/Users/Justin Chen/Downloads/journey7.in",
+		"/C/Users/Justin Chen/Downloads/journey7.out",
+		"/D/Projects/OI-Codes/Storage/Luogu/P3714-树的难题.cpp",
+		"/C/Users/Justin Chen/Downloads/journey3.out",
+		"/C/Users/Justin Chen/Downloads/journey3.in",
+		"/D/Projects/OI-Codes/Project.java",
+		"/D/Programs/Sublime Text/Data/Packages/User/Java for Sublime Text.sublime-build",
+		"/D/Projects/OI-Codes/tmp.java",
+		"/C/Users/Justin Chen/AppData/Local/Temp/7zOC340FCD4/JavaC.sublime-build",
+		"/C/Users/Justin Chen/Desktop/JavaC.sublime-build",
+		"/C/Users/Justin Chen/AppData/Local/Temp/7zO4193CAE1/JavaC.sublime-build",
+		"/C/Users/Justin Chen/AppData/Local/Temp/7zO84568871/JavaC.sublime-build",
+		"/C/Users/Justin Chen/AppData/Local/Temp/7zO845CAF19/JavaC.sublime-build",
+		"/C/Users/Justin Chen/Downloads/P4219_1.in",
+		"/C/Users/Justin Chen/Downloads/P4219_1.out",
+		"/D/Projects/OI-Codes/Storage/Luogu/P4219-大融合.cpp",
+		"/D/Projects/OI-Codes/Storage/Luogu/P3690-【模板】Link Cut Tree.cpp",
+		"/C/Users/Justin Chen/Downloads/P3366_1.in",
+		"/C/Users/Justin Chen/Downloads/P3366_1.out",
+		"/D/Projects/OI-Codes/Storage/Luogu/P4319-变化的道路.cpp",
+		"/D/Projects/OI-Codes/Storage/Luogu/P2387-魔法森林.cpp",
+		"/D/Projects/OI-Codes/Storage/Luogu/P4230-连环病原体.cpp",
+		"/C/Users/Justin Chen/Downloads/P4172_2.out",
+		"/C/Users/Justin Chen/Downloads/P4172_2.in",
+		"/D/Projects/OI-Codes/Storage/Luogu/P4172-水管局长.cpp",
+		"/D/Projects/OI-Codes/Storage/Luogu/P4234-最小差值生成树.cpp",
+		"/D/Projects/OI-Codes/Storage/Luogu/P4332-三叉神经树.cpp",
+		"/D/Projects/OI-Codes/Storage/Luogu/P1501-Tree II.cpp",
+		"/D/Projects/OI-Codes/Storage/Luogu/P4374-Disruption P.cpp",
+		"/C/Users/Justin Chen/Downloads/P1505_1.in",
+		"/C/Users/Justin Chen/Downloads/P1505_1.out",
+		"/D/Projects/OI-Codes/Storage/Luogu/P1505-旅游.cpp",
+		"/D/Projects/OI-Codes/Storage/Luogu/SP6779-GSS7 - Can you answer these queries VII.cpp",
+		"/D/Projects/OI-Codes/Storage/Luogu/P5838-Milk Visits G.cpp",
+		"/C/Users/Justin Chen/Downloads/P3979_3.in",
+		"/C/Users/Justin Chen/Downloads/P3979_3.out",
+		"/D/Projects/OI-Codes/Storage/Luogu/P3979-遥远的国度.cpp",
+		"/C/Users/Justin Chen/Downloads/P3401_2.in",
+		"/C/Users/Justin Chen/Downloads/P3401_2.out",
+		"/D/Projects/OI-Codes/Storage/Luogu/P3401-洛谷树.cpp",
+		"/C/Users/Justin Chen/Downloads/P3976_2.out",
+		"/C/Users/Justin Chen/Downloads/P3976_2.in",
+		"/D/Projects/OI-Codes/Storage/Luogu/P3976-旅游.cpp",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/C/Users/Justin Chen/Music/光年之外/1 G.E.M.邓紫棋 - 光年之外.lrc",
+		"/C/Users/Justin Chen/Desktop/tmp/G.E.M.邓紫棋 - 光年之外.lrc",
+		"/D/Projects/OI-Codes/Storage/Codeforces/666E-Forensic Examination.cpp",
+		"/D/Projects/OI-Codes/Storage/Luogu/P3346-诸神眷顾的幻想乡.cpp",
+		"/D/Projects/OI-Codes/Storage/Codeforces/653F-Paper task.cpp",
+		"/D/Projects/OI-Codes/Storage/Codeforces/1037H-Security.cpp",
+		"/C/Users/Justin Chen/Downloads/str5.in",
+		"/C/Users/Justin Chen/Downloads/str5.out",
+		"/D/Projects/OI-Codes/Storage/LibreOJ/2059-字符串.cpp",
+		"/D/Projects/OI-Codes/Storage/Codeforces/452E-Three strings.cpp",
+		"/D/Projects/OI-Codes/Storage/Codeforces/1073G-Yet Another LCP Problem.cpp",
+		"/D/Projects/OI-Codes/Storage/Luogu/CF1073G-Yet Another LCP Problem.cpp",
+		"/D/Projects/OI-Codes/project.out",
+		"/D/Projects/OI-Codes/Storage/Codeforces/235C-Cyclical Quest.cpp",
+		"/D/Projects/OI-Codes/Storage/Luogu/P7409-SvT.cpp",
+		"/D/Projects/OI-Codes/Storage/Luogu/P4081-Standing Out from the Herd P.cpp",
+		"/C/Users/Justin Chen/Downloads/P1117_13.in",
+		"/C/Users/Justin Chen/Downloads/P1117_13.out",
+		"/D/Projects/OI-Codes/Storage/Luogu/P1117-优秀的拆分.cpp",
+		"/C/Users/Justin Chen/Downloads/P1117_2.in",
+		"/C/Users/Justin Chen/Downloads/P1117_2.out",
+		"/C/Users/Justin Chen/Downloads/P1117_1.in",
+		"/C/Users/Justin Chen/Downloads/P1117_1.out",
+		"/D/Projects/OI-Codes/project.in",
+		"/D/Projects/OI-Codes/Storage/Luogu/P5212-SubString.cpp",
+		"/C/Users/Justin Chen/Downloads/P5212_4.in",
+		"/C/Users/Justin Chen/Downloads/P5212_4.out",
+		"/D/Projects/OI-Codes/Storage/Codeforces/427D-Match & Catch.cpp",
+		"/C/Users/Justin Chen/Downloads/6.in",
+		"/D/Projects/OI-Codes/Storage/LibreOJ/6198-谢特(SAM).cpp",
+		"/C/Users/Justin Chen/Downloads/P6640_2.in",
+		"/C/Users/Justin Chen/Downloads/P6640_2.out",
+		"/D/Projects/OI-Codes/Storage/Luogu/P6640-封印.cpp",
+		"/C/Users/Justin Chen/Downloads/新建文件夹/GettingOverItWithBennettFoddyV1.5_chs/gameyxdown.dat",
+		"/C/Users/Justin Chen/Downloads/新建文件夹/GettingOverItWithBennettFoddyV1.5_chs/install.yx",
+		"/C/Users/Justin Chen/Downloads/新建文件夹/GettingOverItWithBennettFoddyV1.5_chs/Getting Over It/启动游戏.bat",
+		"/C/Users/Justin Chen/Downloads/新建文件夹/GettingOverItWithBennettFoddyV1.5_chs/setup",
+		"/C/Users/Justin Chen/Music/.lrc",
+		"/D/Projects/OI-Codes/Storage/SPOJ/8222-Substrings.cpp",
+		"/D/Projects/OI-Codes/Storage/SPOJ/705-New Distinct Substrings.cpp",
+		"/D/Projects/OI-Codes/Storage/SPOJ/1811-LCS-Longest Common Subtring.cpp",
+		"/D/Projects/OI-Codes/Storage/Luogu/P3804-【模板】后缀自动机.cpp",
+		"/D/Projects/OI-Codes/Storage/SPOJ/220-Relevant Phrases of Annihilation.cpp"
+	],
+	"find":
+	{
+		"height": 26.4
+	},
+	"find_in_files":
+	{
+		"height": 144.8,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"Seed"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": true,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.4
+	},
+	"input":
+	{
+		"height": 50.4
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.Terminus":
+	{
+		"height": 168.0
+	},
+	"output.astyle_error_message":
+	{
+		"height": 0.0
+	},
+	"output.exec":
+	{
+		"height": 143.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 120.0
+	},
+	"pinned_build_system": "Packages/User/C++ for Sublime Text.sublime-build",
+	"project": "OI-Utility.sublime-project",
+	"replace":
+	{
+		"height": 49.6
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"可持久",
+				"Storage\\Luogu\\P3834-【模板】可持久化线段树.cpp"
+			],
+			[
+				"pro",
+				"project.cpp"
+			],
+			[
+				"大",
+				"Storage\\Luogu\\P4103-大工程.cpp"
+			],
+			[
+				"fas",
+				"Utility\\FasterQuickIO.cpp"
+			],
+			[
+				"消耗",
+				"Storage\\Luogu\\P2495-消耗战.cpp"
+			],
+			[
+				"染色",
+				"Storage\\Luogu\\P2486-染色.cpp"
+			],
+			[
+				"Faster",
+				"Utility\\FasterQuickIO.cpp"
+			],
+			[
+				"pr",
+				"project.cpp"
+			],
+			[
+				"Cow at",
+				"Storage\\Luogu\\P4186-Cow at Large G.cpp"
+			],
+			[
+				"link",
+				"Storage\\Luogu\\P3690-【模板】Link Cut Tree.cpp"
+			],
+			[
+				"魔法",
+				"Storage\\Luogu\\P2387-魔法森林.cpp"
+			],
+			[
+				"Link",
+				"Storage\\Luogu\\P3690-【模板】Link Cut Tree.cpp"
+			],
+			[
+				"tree",
+				"Storage\\Luogu\\P1501-Tree II.cpp"
+			],
+			[
+				"cy",
+				"Storage\\Codeforces\\235C-Cyclical Quest.cpp"
+			],
+			[
+				"he",
+				"Storage\\Luogu\\P4081-Standing Out from the Herd P.cpp"
+			],
+			[
+				"cyc",
+				"Storage\\Codeforces\\235C-Cyclical Quest.cpp"
+			],
+			[
+				"p",
+				"project.cpp"
+			],
+			[
+				"tree II",
+				"Storage\\Luogu\\P1501-Tree II.cpp"
+			],
+			[
+				"best",
+				"Storage\\Luogu\\P2870-Best Cow Line G.cpp"
+			],
+			[
+				"差异",
+				"Storage\\LibreOJ\\2377-差异.cpp"
+			],
+			[
+				"tmp",
+				"tmp.cpp"
+			],
+			[
+				"Mi",
+				"Storage\\Luogu\\P2852-牛奶模式Milk Patterns.cpp"
+			],
+			[
+				"com",
+				"Storage\\HDU\\2196-Computer.cpp"
+			],
+			[
+				"bear and trjup",
+				"Storage\\Luogu\\CF771C-Bear and Tree Jumps.cpp"
+			],
+			[
+				"dyna",
+				"Storage\\Luogu\\P2617-Dynamic Rankings.cpp"
+			],
+			[
+				"dy",
+				"Storage\\Luogu\\P2617-Dynamic Rankings.cpp"
+			],
+			[
+				"CF",
+				"Storage\\Luogu\\CF1000F-One Occurrence.cpp"
+			],
+			[
+				"pro.cpp",
+				"project.cpp"
+			],
+			[
+				"projec",
+				"project.out"
+			],
+			[
+				"P298",
+				"Storage\\Luogu\\P2986-Great Cow Gathering G.cpp"
+			],
+			[
+				"维护",
+				"Storage\\Luogu\\P2042-维护数列.cpp"
+			],
+			[
+				"P108",
+				"Storage\\Luogu\\P1081-开车旅行.cpp"
+			],
+			[
+				"hay",
+				"Storage\\Luogu\\P3051-Haybale Restacking G.cpp"
+			],
+			[
+				"柠檬",
+				"Storage\\Luogu\\P5504-柠檬.cpp"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 508.8,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"D:\\Projects\\CliGraphics\\CliGraphics.sublime-project"
+			]
+		],
+		"width": 397.6
+	},
+	"select_symbol":
+	{
+		"height": 309.0,
+		"last_filter": "Ge",
+		"selected_items":
+		[
+			[
+				"Ge",
+				"GeneralSuffixAutomaton"
+			],
+			[
+				"Gen",
+				"GeneralSuffixAutomaton"
+			],
+			[
+				"bui",
+				"build"
+			],
+			[
+				"item",
+				"Item"
+			],
+			[
+				"makeR",
+				"makeRoot"
+			],
+			[
+				"spa",
+				"SparseTable"
+			],
+			[
+				"acce",
+				"access"
+			],
+			[
+				"suff",
+				"SuffixAutomaton"
+			],
+			[
+				"Suffic",
+				"SufficAutomaton"
+			],
+			[
+				"prta",
+				"preprocessTable"
+			],
+			[
+				"height",
+				"height"
+			],
+			[
+				"reserve",
+				"reserve"
+			],
+			[
+				"lca",
+				"LCA"
+			],
+			[
+				"inv",
+				"inv"
+			],
+			[
+				"phi",
+				"phi"
+			],
+			[
+				"LCA",
+				"LCA"
+			],
+			[
+				"ma",
+				"manacher"
+			],
+			[
+				"mana",
+				"manacher"
+			],
+			[
+				"parse",
+				"parse"
+			],
+			[
+				"exBs",
+				"exBsgs"
+			],
+			[
+				"triple",
+				"triple"
+			],
+			[
+				"tri",
+				"triple"
+			],
+			[
+				"BSGS",
+				"BSGS"
+			],
+			[
+				"exgcd",
+				"exGCD"
+			],
+			[
+				"Bsgs",
+				"bsgs"
+			],
+			[
+				"exCr",
+				"exCrt"
+			],
+			[
+				"exC",
+				"exCrt"
+			],
+			[
+				"excrt",
+				"exCrt"
+			],
+			[
+				"exG",
+				"exGCD"
+			],
+			[
+				"gcd",
+				"GCD"
+			],
+			[
+				"DFS2",
+				"DFS2"
+			]
+		],
+		"width": 592.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 254.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+		"max_columns": 2
+	}
+}

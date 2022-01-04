@@ -4,7 +4,7 @@
 #include <cstring>
 using namespace std;
 
-namespace MANACHER {
+namespace Manacher {
 
 template <int size> class Manacher {
 public:

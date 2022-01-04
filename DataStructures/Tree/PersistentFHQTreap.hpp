@@ -3,8 +3,7 @@
 
 namespace PersistentFhqTreap {
 
-template <typename T, int size> class PersistentFhqTreap 
-{
+template <typename T, int size> class PersistentFhqTreap {
 public:
     PersistentFhqTreap() { seed = (int)(size * 565463ll % 2147483647); }
 

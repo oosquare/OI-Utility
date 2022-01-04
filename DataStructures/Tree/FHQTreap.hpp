@@ -5,8 +5,7 @@
 
 namespace FhqTreap {
 
-template <typename T>
-class FhqTreap {
+template <typename T> class FhqTreap {
 public:
     FhqTreap() { root = nullptr; }
 

@@ -5,7 +5,7 @@ namespace RandowEngine {
 
 class RandomEngine {
 public:
-	RandomEngine(long long seed = 233ll) { Seed = seed; }
+	RandomEngine(long long in = 233ll) { seed = in; }
 	int nextInt(int n) {
 		return nextInt() % n;
 	}
@@ -22,13 +22,13 @@ public:
 		return nextLongLong(r - l) % +l;
 	}
 private:
-	long long Seed;
+	long long seed;
 	int nextInt() {
-		return Seed = (int)(Seed * 482711ll % 0x7fffffff);
+		return seed = (int)(seed * 482711ll % 0x7fffffff);
 	}
 	
 	long long nextLongLong() {
-		return Seed = (long long)(Seed * 482711ll % 0x7fffffffffffffff);
+		return seed = (long long)(seed * 482711ll % 0x7fffffffffffffff);
 	}
 }
 

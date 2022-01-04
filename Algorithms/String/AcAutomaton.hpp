@@ -7,9 +7,9 @@ namespace AcAutomaton {
 #include <cstring>
 using namespace std;
 
-template <int size> class ACAutomaton {
+template <int size> class AcAutomaton {
 public:
-    ACAutomaton() {
+    AcAutomaton() {
         this->clear();
     }
 
