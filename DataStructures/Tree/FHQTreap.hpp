@@ -7,7 +7,10 @@ namespace FhqTreap {
 
 template <typename T> class FhqTreap {
 public:
-    FhqTreap() { root = nullptr; }
+    FhqTreap(int seed = 0) {
+        this->seed = seed;
+        root = nullptr;
+    }
 
     ~FhqTreap() {
         if (root)
